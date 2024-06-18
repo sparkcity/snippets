@@ -1,0 +1,20 @@
+Hue has a general limit of 100k results that can be downloaded at a time through the user interface.
+To get all results for whatever purposes, use the query needed and export to an external table using user interface.
+In the newly made table:
+
+1 -
+SELECT * FROM {db}.{results_table}
+ORDER BY {column} DESC
+LIMIT 100000;
+
+2 -
+SELECT * FROM {db}.{results_table}
+ORDER BY {column} DESC
+LIMIT 100000
+OFFSET 100000;
+
+3 - 
+Continue to increment offset by 100k, download the excel/csv, and repeat until all results are obtained.
+
+4 -
+Merge all files together into a master file using merge_excel_workbooks.py
